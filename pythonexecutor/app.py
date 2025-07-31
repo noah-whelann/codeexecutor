@@ -54,14 +54,26 @@ if __name__ == '__main__':
         stdout = process.stdout
         stderr = process.stderr
 
+        # split the std output into an array of lines
+        lines = process.stdout.splitlines()
+
+        if not lines:
+            return {"result": {"error": "no output"}}
+
+        #the very last line of the stdout will be the return from main() as we appended this part earlier
+        raw_json = lines[-1]
+        user_stdout = "\n".join(lines[:-1])
+        if user_stdout:
+            user_stdout += "\n"
+
         try:
-            result = json.loads(stdout)
+            result = json.loads(raw_json)
         except json.JSONDecodeError:
             result = {"error": "could not parse", "stdout": stdout}
 
         return {
             "result": result,
-            "stdout": stderr,
+            "stdout": user_stdout,
         }
 
     except subprocess.TimeoutExpired:
