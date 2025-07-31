@@ -5,6 +5,7 @@ import os
 import json
 from io import StringIO
 import sys
+import tempfile
 
 from flask import Flask, render_template, request
 
@@ -15,6 +16,8 @@ app = Flask(__name__)
 def run_script(script):
 
     # must parse in here too
+
+    
 
     buffer_output = StringIO()
     original_stdout = sys.stdout
@@ -35,7 +38,7 @@ def hello():
     """Get Cloud Run environment variables."""
     service = os.environ.get('K_SERVICE', 'Unknown service')
     revision = os.environ.get('K_REVISION', 'Unknown revision')
-
+    print("just got executed")
     data = request.get_json()
     if data and data.get("script"):
         script = data.get("script")
