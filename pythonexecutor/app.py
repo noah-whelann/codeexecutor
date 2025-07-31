@@ -1,23 +1,16 @@
-"""
-A sample Hello World server.
-"""
-from encodings.punycode import T
-from flask import Flask, render_template, request
+from flask import Flask, jsonify, render_template, request
 import os
 import json
-from io import StringIO
-import sys
 import tempfile
 import subprocess
-import
+import shutil
 
-
-# pylint: disable=C0103
 app = Flask(__name__)
 
 
 def run_script(script):
 
+    #Append this to the end of the script that was sent over in order to strictly obtain the result of the "main" function
     main_return_statement = """
 
 if __name__ == '__main__':
@@ -25,64 +18,72 @@ if __name__ == '__main__':
     try:
         result = main()
         print(json.dumps(result))
+    except NameError:
+        print(json.dumps({"error": "no main() defined"}))
     except Exception as e:
         print(json.dumps({"error": str(e)}))
 """
 
     # must parse in here too
 
-    script_with_main = script + '\n' + main_return_statement
+    script_with_main = script.strip() + '\n' + main_return_statement
 
-
+    #Creates a temporary file for the user's script to be loaded into
     temp = tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False)
 
-    buffer_output = StringIO()
-    original_stdout = sys.stdout
-    sys.stdout = buffer_output
-
-    temp.write(script)
+    temp.write(script_with_main)
+    temp.flush()
+    temp.close()
     temp_path = temp.name
 
-    try:
+    #Ensures that we are working in the correct python directory
+    python_path = shutil.which(
+        "python3") or shutil.which("python") or "python3"
 
-        process = subprocess.run(["nsjail", "--quiet", "--chroot", "/", "--",
-                   "python3", temp_path], capture_output=True, text=True, timeout=5)
-        
-        stdout = process.stdout.strip()
-        stderr = process.stderr.strip()
+    
+    try:
+        #Runt he users script in a subprocess with nsjail enabled to ensure a safe environment
+        process = subprocess.run([
+            "nsjail", "--quiet",
+            "--disable_clone_newuser",
+            "--disable_clone_newns",
+            "--disable_proc",
+            "--iface_no_lo",
+            "--", python_path, temp_path
+        ], capture_output=True, text=True, timeout=5)
+
+        stdout = process.stdout
+        stderr = process.stderr
 
         try:
             result = json.loads(stdout)
         except json.JSONDecodeError:
             result = {"error": "could not parse"}
 
-        return {"result": result, stdout: stderr}
-        
-    except subprocess.TimeoutExpired:
-        return {"error": "timeout"}
-    finally:
-        os.remove(temp_path)
-        sys.stdout = original_stdout
-        buffer_output.close()
+        return {
+            "result": result,
+            "stdout": stderr,
+        }
 
+    except subprocess.TimeoutExpired:
+        return {
+            "result": {"error": "timeout"},
+            "stdout": "",
+        }
+    finally:
+        #clean up the temp file that was created
+        os.remove(temp_path)
 
 @app.route('/execute', methods=['POST'])
-def hello():
-    """Return a friendly HTTP greeting."""
-    message = "This is it!"
-
-    """Get Cloud Run environment variables."""
-    service = os.environ.get('K_SERVICE', 'Unknown service')
-    revision = os.environ.get('K_REVISION', 'Unknown revision')
+def execute():
     print("just got executed")
     data = request.get_json()
     if data and data.get("script"):
         script = data.get("script")
         result = run_script(script)
-        return json.dumps(result)
+        return jsonify(result)
     else:
-        return json.dumps({"result": "result"},
-                          {"stdout": "stdout"})
+        return jsonify({"error": "no script"})
 
 
 if __name__ == '__main__':
