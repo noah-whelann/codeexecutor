@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, render_template, request
-import os
 import json
 import tempfile
+import os
 import subprocess
 import shutil
 
@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 def run_script(script):
 
-    #Append this to the end of the script that was sent over in order to strictly obtain the result of the "main" function
+    # Append this to the end of the script that was sent over in order to strictly obtain the result of the "main" function
     main_return_statement = """
 
 if __name__ == '__main__':
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         result = main()
         print(json.dumps(result))
     except NameError:
-        print(json.dumps({"error": "no main() defined"}))
+        print(json.dumps({"error": "no main()"}))
     except Exception as e:
         print(json.dumps({"error": str(e)}))
 """
@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     script_with_main = script.strip() + '\n' + main_return_statement
 
-    #Creates a temporary file for the user's script to be loaded into
+    # Creates a temporary file for the user's script to be loaded into
     temp = tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False)
 
     temp.write(script_with_main)
@@ -36,13 +36,12 @@ if __name__ == '__main__':
     temp.close()
     temp_path = temp.name
 
-    #Ensures that we are working in the correct python directory
+    # Ensures that we are working in the correct python directory
     python_path = shutil.which(
         "python3") or shutil.which("python") or "python3"
 
-    
     try:
-        #Runt he users script in a subprocess with nsjail enabled to ensure a safe environment
+        # Runt he users script in a subprocess with nsjail enabled to ensure a safe environment
         process = subprocess.run([
             "nsjail", "--quiet",
             "--disable_clone_newuser",
@@ -58,7 +57,7 @@ if __name__ == '__main__':
         try:
             result = json.loads(stdout)
         except json.JSONDecodeError:
-            result = {"error": "could not parse"}
+            result = {"error": "could not parse", "stdout": stdout}
 
         return {
             "result": result,
@@ -71,8 +70,9 @@ if __name__ == '__main__':
             "stdout": "",
         }
     finally:
-        #clean up the temp file that was created
+        # clean up the temp file that was created
         os.remove(temp_path)
+
 
 @app.route('/execute', methods=['POST'])
 def execute():
