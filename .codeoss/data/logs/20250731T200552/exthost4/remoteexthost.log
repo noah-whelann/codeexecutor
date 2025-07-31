@@ -1,0 +1,11 @@
+2025-07-31 20:16:34.405 [info] Extension host with pid 3391 started
+2025-07-31 20:16:34.405 [error] Error: EEXIST: file already exists, open '/home/noah_a_whelan/.codeoss/data/User/workspaceStorage/-f761586/vscode.lock'
+2025-07-31 20:16:34.535 [info] Lock '/home/noah_a_whelan/.codeoss/data/User/workspaceStorage/-f761586/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-07-31 20:16:34.580 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-07-31 20:16:34.599 [info] ExtensionService#_doActivateExtension ms-python.python, startup: false, activationEvent: 'onLanguage:python'
+2025-07-31 20:16:35.251 [info] ExtensionService#_doActivateExtension google.cloud-shell, startup: false, activationEvent: 'onTerminalProfile:cloudshell.default'
+2025-07-31 20:16:35.275 [info] Lock '/home/noah_a_whelan/.codeoss/data/User/workspaceStorage/-f761586/vscode.lock': The lock does not look stale, elapsed: 225 ms, giving up.
+2025-07-31 20:16:35.286 [info] Lock '/home/noah_a_whelan/.codeoss/data/User/workspaceStorage/-f761586-1/vscode.lock': Lock acquired.
+2025-07-31 20:16:35.372 [info] Extension host terminating: received terminate message from renderer
+2025-07-31 20:16:35.373 [info] Lock '/home/noah_a_whelan/.codeoss/data/User/workspaceStorage/-f761586-1/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+2025-07-31 20:16:35.375 [info] Extension host with pid 3391 exiting with code 0

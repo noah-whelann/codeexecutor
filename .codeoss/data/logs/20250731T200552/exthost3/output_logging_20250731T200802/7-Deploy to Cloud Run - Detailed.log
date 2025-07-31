@@ -1,0 +1,161 @@
+Retrieving builders.
+Getting Gcloud Login State.
+Using picked GCP Project "pythonexecutor-467620"
+Checking Cloud Run API status.
+Using current GCP Project "pythonexecutor-467620"
+Checking Cloud Run API status.
+Getting Cloud Run Services for project "pythonexecutor-467620".
+Getting Cloud Run Services for project "pythonexecutor-467620".
+Executing Skaffold build.
+Running skaffold command: /usr/bin/skaffold init --artifact {"image":"gcr.io/pythonexecutor-467620/pythonexecutor","builder":"Docker","payload":{"path":"Dockerfile"}} --skip-deploy --filename /tmp/cloud-code-cloud-run-BgPTmW/skaffold.yaml --force
+Setting build tagPolicy to SHA256.
+Setting statusCheckDeadlineSeconds to 5 minutes
+Setting build environment to 'local'
+Created the file /tmp/cloud-code-cloud-run-BgPTmW/skaffold.yaml.
+Running skaffold command: build --filename /tmp/cloud-code-cloud-run-BgPTmW/skaffold.yaml --kube-context='' --platform=linux/amd64
+Generating tags...
+ - gcr.io/pythonexecutor-467620/pythonexecutor ->
+gcr.io/pythonexecutor-467620/pythonexecutor:latest
+Checking cache...
+- gcr.io/pythonexecutor-467620/pythonexecutor: Not found. Building
+Starting build...
+Building [gcr.io/pythonexecutor-467620/pythonexecutor]...
+Target platforms: [linux/amd64]
+time="2025-07-31T20:17:32Z" level=warning msg="Skipping .venv/bin/python. Only relative symlinks are supported." subtask=gcr.io/pythonexecutor-467620/pythonexecutor task=Build
+Sending build context to Docker daemon  529.9kB
+Sending build context to Docker daemon   5.95MB
+Sending build context to Docker daemon  19.72MB
+Sending build context to Docker daemon  27.81MB
+Sending build context to Docker daemon  32.06MB
+Sending build context to Docker daemon  37.89MB
+Sending build context to Docker daemon  42.18MB
+Sending build context to Docker daemon  44.45MB
+Step 1/6 : FROM python:3.12-alpine
+3.12-alpine: Pulling from library/python
+9824c27679d3: Pulling fs layer
+fa0cfe9de208: Pulling fs layer
+21e4653e6a47: Pulling fs layer
+111c49455a02: Pulling fs layer
+111c49455a02: Waiting
+fa0cfe9de208: Verifying Checksum
+fa0cfe9de208: Download complete
+9824c27679d3: Verifying Checksum
+9824c27679d3: Download complete
+21e4653e6a47: Verifying Checksum
+21e4653e6a47: Download complete
+9824c27679d3: Pull complete
+111c49455a02: Verifying Checksum
+111c49455a02: Download complete
+fa0cfe9de208: Pull complete
+21e4653e6a47: Pull complete
+111c49455a02: Pull complete
+Digest: sha256:9b8808206f4a956130546a32cbdd8633bc973b19db2923b7298e6f90cc26db08
+Status: Downloaded newer image for python:3.12-alpine
+---> 9337f2a5ce6c
+Step 2/6 : WORKDIR /app
+---> Running in f260e16e4fd2
+---> c104c9a9e5ce
+Step 3/6 : COPY requirements.txt .
+---> 16bbec887e01
+Step 4/6 : RUN pip install --trusted-host pypi.python.org -r requirements.txt
+---> Running in cebeca02b6eb
+Collecting Flask==2.3.3 (from -r requirements.txt (line 1))
+Downloading flask-2.3.3-py3-none-any.whl.metadata (3.6 kB)
+Collecting requests==2.31.0 (from -r requirements.txt (line 2))
+Downloading requests-2.31.0-py3-none-any.whl.metadata (4.6 kB)
+Collecting debugpy (from -r requirements.txt (line 3))
+Downloading debugpy-1.8.15-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting Werkzeug>=2.3.7 (from Flask==2.3.3->-r requirements.txt (line 1))
+Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting Jinja2>=3.1.2 (from Flask==2.3.3->-r requirements.txt (line 1))
+Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting itsdangerous>=2.1.2 (from Flask==2.3.3->-r requirements.txt (line 1))
+Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting click>=8.1.3 (from Flask==2.3.3->-r requirements.txt (line 1))
+Downloading click-8.2.1-py3-none-any.whl.metadata (2.5 kB)
+Collecting blinker>=1.6.2 (from Flask==2.3.3->-r requirements.txt (line 1))
+Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting charset-normalizer<4,>=2 (from requests==2.31.0->-r requirements.txt (line 2))
+Downloading charset_normalizer-3.4.2-cp312-cp312-musllinux_1_2_x86_64.whl.metadata (35 kB)
+Collecting idna<4,>=2.5 (from requests==2.31.0->-r requirements.txt (line 2))
+Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting urllib3<3,>=1.21.1 (from requests==2.31.0->-r requirements.txt (line 2))
+Downloading urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting certifi>=2017.4.17 (from requests==2.31.0->-r requirements.txt (line 2))
+Downloading certifi-2025.7.14-py3-none-any.whl.metadata (2.4 kB)
+Collecting MarkupSafe>=2.0 (from Jinja2>=3.1.2->Flask==2.3.3->-r requirements.txt (line 1))
+Downloading MarkupSafe-3.0.2-cp312-cp312-musllinux_1_2_x86_64.whl.metadata (4.0 kB)
+Downloading flask-2.3.3-py3-none-any.whl (96 kB)
+Downloading requests-2.31.0-py3-none-any.whl (62 kB)
+Downloading debugpy-1.8.15-py2.py3-none-any.whl (5.3 MB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/5.3 MB 84.8 MB/s eta 0:00:00
+
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading certifi-2025.7.14-py3-none-any.whl (162 kB)
+Downloading charset_normalizer-3.4.2-cp312-cp312-musllinux_1_2_x86_64.whl (149 kB)
+Downloading click-8.2.1-py3-none-any.whl (102 kB)
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading urllib3-2.5.0-py3-none-any.whl (129 kB)
+Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+Downloading MarkupSafe-3.0.2-cp312-cp312-musllinux_1_2_x86_64.whl (23 kB)
+Installing collected packages: urllib3, MarkupSafe, itsdangerous, idna, debugpy, click, charset-normalizer, certifi, blinker, Werkzeug, requests, Jinja2, Flask
+Successfully installed Flask-2.3.3 Jinja2-3.1.6 MarkupSafe-3.0.2 Werkzeug-3.1.3 blinker-1.9.0 certifi-2025.7.14 charset-normalizer-3.4.2 click-8.2.1 debugpy-1.8.15 idna-3.10 itsdangerous-2.2.0 requests-2.31.0 urllib3-2.5.0
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[0m
+[91m
+[notice] A new release of pip is available: 25.0.1 -> 25.2
+[notice] To update, run: pip install --upgrade pip
+[0m
+---> 97711beced3e
+Step 5/6 : COPY . .
+---> e36b9ace7080
+Step 6/6 : ENTRYPOINT ["python", "app.py"]
+---> Running in 8c91b8f89c29
+---> a0a0a9534fbf
+Successfully built a0a0a9534fbf
+Successfully tagged gcr.io/pythonexecutor-467620/pythonexecutor:latest
+The push refers to repository [gcr.io/pythonexecutor-467620/pythonexecutor]
+a86fbe4990ea: Preparing
+c887345029da: Preparing
+77e4f6a42178: Preparing
+59b2a36f0bbf: Preparing
+629536a4dfb8: Preparing
+1c854a1472ac: Preparing
+1b5d320bed89: Preparing
+418dccb7d85a: Preparing
+1c854a1472ac: Waiting
+1b5d320bed89: Waiting
+418dccb7d85a: Waiting
+a86fbe4990ea: Retrying in 5 seconds
+a86fbe4990ea: Retrying in 4 seconds
+a86fbe4990ea: Retrying in 3 seconds
+629536a4dfb8: Layer already exists
+77e4f6a42178: Pushed
+a86fbe4990ea: Retrying in 2 seconds
+59b2a36f0bbf:
+Pushed
+1c854a1472ac: Layer already exists
+a86fbe4990ea: Retrying in 1 second
+1b5d320bed89: Layer already exists
+418dccb7d85a: Layer already exists
+c887345029da: Pushed
+a86fbe4990ea: Pushed
+latest: digest: sha256:22d594282262739eecc00a7e80772d66a1f2c9c23b9e76c8f110d04b111cfca2 size: 1994
+Build [gcr.io/pythonexecutor-467620/pythonexecutor] succeeded
+Executing Gcloud Run Deploy
+Running gcloud command: run deploy pythonexecutor --project pythonexecutor-467620 --image gcr.io/pythonexecutor-467620/pythonexecutor --client-name Cloud Code for VS Code --client-version 2.31.1 --platform managed --region us-central1 --allow-unauthenticated --port 8080 --cpu 1 --memory 256Mi --concurrency 80 --timeout 300 --clear-env-vars
+Deploying container to Cloud Run service [pythonexecutor] in project [pythonexecutor-467620] region [us-central1]
+Deploying new service...
+Setting IAM Policy..............done
+Creating Revision..............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................done
+Routing traffic.....done
+Done.
+Service [pythonexecutor] revision [pythonexecutor-00001-mbm] has been deployed and is serving 100 percent of traffic.
+Service URL: https://pythonexecutor-824243384300.us-central1.run.app
+Retrieving builders.
+Getting Gcloud Login State.
+Using current GCP Project "pythonexecutor-467620"
+Checking Cloud Run API status.
+Getting Cloud Run Services for project "pythonexecutor-467620".

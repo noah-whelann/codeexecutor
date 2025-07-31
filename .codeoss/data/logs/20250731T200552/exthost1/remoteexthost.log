@@ -1,0 +1,35 @@
+2025-07-31 20:05:59.222 [info] Extension host with pid 1240 started
+2025-07-31 20:05:59.259 [info] Lock '/home/noah_a_whelan/.codeoss/data/User/workspaceStorage/4e9b48a4/vscode.lock': Lock acquired.
+2025-07-31 20:05:59.312 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-07-31 20:05:59.513 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-07-31 20:05:59.560 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-07-31 20:05:59.560 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-07-31 20:05:59.811 [info] Eager extensions activated
+2025-07-31 20:05:59.811 [info] ExtensionService#_doActivateExtension EditorConfig.EditorConfig, startup: false, activationEvent: 'onStartupFinished'
+2025-07-31 20:05:59.812 [info] ExtensionService#_doActivateExtension google.cloud-shell, startup: false, activationEvent: 'onStartupFinished'
+2025-07-31 20:05:59.812 [info] ExtensionService#_doActivateExtension google.geminicodeassist, startup: false, activationEvent: 'onStartupFinished', root cause: googlecloudtools.cloudcode
+2025-07-31 20:05:59.813 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-07-31 20:05:59.813 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-07-31 20:06:02.047 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-07-31 20:06:02.053 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-07-31 20:06:02.054 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-07-31 20:06:02.489 [info] ExtensionService#_doActivateExtension googlecloudtools.cloudcode, startup: false, activationEvent: 'onStartupFinished'
+2025-07-31 20:06:09.579 [info] Extension host terminating: received terminate message from renderer
+2025-07-31 20:06:09.594 [info] Lock '/home/noah_a_whelan/.codeoss/data/User/workspaceStorage/4e9b48a4/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+2025-07-31 20:06:17.609 [error] Canceled: Canceled
+    at new HR (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:29:118837)
+    at i4.U (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:29:123448)
+    at Proxy.s.<computed>.n.charCodeAt.s.<computed> (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:29:120942)
+    at vw.g (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:111:40983)
+    at vw.executeCommand (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:111:40487)
+    at r.registerCommand.description (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:111:39817)
+    at vw.h (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:111:41503)
+    at vw.g (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:111:40580)
+    at vw.executeCommand (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:111:40487)
+    at Object.executeCommand (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:173:30346)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:10280650
+    at Generator.next (<anonymous>)
+    at i (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloudcode/dist/extension.js:14:10253100)
+    at runNextTicks (node:internal/process/task_queues:60:5)
+    at processImmediate (node:internal/timers:454:9) setContext undefined
+2025-07-31 20:06:17.616 [info] Extension host with pid 1240 exiting with code 0

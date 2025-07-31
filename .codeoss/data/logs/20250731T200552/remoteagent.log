@@ -1,0 +1,50 @@
+2025-07-31 20:05:53.050 [info] 
+
+
+
+
+2025-07-31 20:05:53.069 [info] Extension host agent started.
+2025-07-31 20:05:53.093 [info] Started initializing default profile extensions in extensions installation folder. file:///home/noah_a_whelan/.codeoss/extensions
+2025-07-31 20:05:53.110 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/noah_a_whelan/.codeoss/extensions
+2025-07-31 20:05:54.563 [info] [127.0.0.1][9454da99][ManagementConnection] New connection established.
+2025-07-31 20:05:54.596 [info] [127.0.0.1][4257c6f6][ExtensionHostConnection] New connection established.
+2025-07-31 20:05:57.316 [info] [127.0.0.1][4257c6f6][ExtensionHostConnection] <1240> Launched Extension Host Process.
+2025-07-31 20:06:09.524 [info] [127.0.0.1][9454da99][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-07-31 20:06:17.708 [info] [127.0.0.1][4257c6f6][ExtensionHostConnection] <1240> Extension Host Process exited with code: 0, signal: null.
+2025-07-31 20:06:22.501 [info] [127.0.0.1][94261278][ManagementConnection] New connection established.
+2025-07-31 20:06:22.502 [info] [127.0.0.1][76bd69e2][ExtensionHostConnection] New connection established.
+2025-07-31 20:06:22.508 [info] [127.0.0.1][76bd69e2][ExtensionHostConnection] <1324> Launched Extension Host Process.
+2025-07-31 20:07:59.261 [info] [127.0.0.1][94261278][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-07-31 20:07:59.466 [info] [127.0.0.1][76bd69e2][ExtensionHostConnection] <1324> Extension Host Process exited with code: 0, signal: null.
+2025-07-31 20:08:00.156 [info] [127.0.0.1][15f208d3][ManagementConnection] New connection established.
+2025-07-31 20:08:00.180 [info] [127.0.0.1][b218dd5b][ExtensionHostConnection] New connection established.
+2025-07-31 20:08:00.184 [info] [127.0.0.1][b218dd5b][ExtensionHostConnection] <1924> Launched Extension Host Process.
+2025-07-31 20:16:32.448 [info] [127.0.0.1][ffd9ad74][ManagementConnection] New connection established.
+2025-07-31 20:16:32.450 [info] [127.0.0.1][62dcd37f][ExtensionHostConnection] New connection established.
+2025-07-31 20:16:32.454 [info] [127.0.0.1][62dcd37f][ExtensionHostConnection] <3391> Launched Extension Host Process.
+2025-07-31 20:16:34.159 [warning] RequestStore#acceptReply was called without receiving a matching request 85
+2025-07-31 20:16:34.159 [warning] RequestStore#acceptReply was called without receiving a matching request 86
+2025-07-31 20:16:34.160 [warning] RequestStore#acceptReply was called without receiving a matching request 87
+2025-07-31 20:16:34.160 [warning] RequestStore#acceptReply was called without receiving a matching request 88
+2025-07-31 20:16:34.160 [warning] RequestStore#acceptReply was called without receiving a matching request 89
+2025-07-31 20:16:34.160 [warning] RequestStore#acceptReply was called without receiving a matching request 90
+2025-07-31 20:16:34.160 [warning] RequestStore#acceptReply was called without receiving a matching request 91
+2025-07-31 20:16:34.160 [warning] RequestStore#acceptReply was called without receiving a matching request 92
+2025-07-31 20:16:34.160 [warning] RequestStore#acceptReply was called without receiving a matching request 93
+2025-07-31 20:16:34.161 [warning] RequestStore#acceptReply was called without receiving a matching request 94
+2025-07-31 20:16:34.161 [warning] RequestStore#acceptReply was called without receiving a matching request 95
+2025-07-31 20:16:34.161 [warning] RequestStore#acceptReply was called without receiving a matching request 96
+2025-07-31 20:16:34.879 [warning] RequestStore#acceptReply was called without receiving a matching request 97
+2025-07-31 20:16:34.880 [warning] RequestStore#acceptReply was called without receiving a matching request 98
+2025-07-31 20:16:34.880 [warning] RequestStore#acceptReply was called without receiving a matching request 99
+2025-07-31 20:16:34.880 [warning] RequestStore#acceptReply was called without receiving a matching request 100
+2025-07-31 20:16:34.880 [warning] RequestStore#acceptReply was called without receiving a matching request 101
+2025-07-31 20:16:34.880 [warning] RequestStore#acceptReply was called without receiving a matching request 102
+2025-07-31 20:16:34.880 [warning] RequestStore#acceptReply was called without receiving a matching request 103
+2025-07-31 20:16:34.880 [warning] RequestStore#acceptReply was called without receiving a matching request 104
+2025-07-31 20:16:34.880 [warning] RequestStore#acceptReply was called without receiving a matching request 105
+2025-07-31 20:16:34.880 [warning] RequestStore#acceptReply was called without receiving a matching request 106
+2025-07-31 20:16:34.880 [warning] RequestStore#acceptReply was called without receiving a matching request 107
+2025-07-31 20:16:34.880 [warning] RequestStore#acceptReply was called without receiving a matching request 108
+2025-07-31 20:16:35.371 [info] [127.0.0.1][ffd9ad74][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-07-31 20:16:35.394 [info] [127.0.0.1][62dcd37f][ExtensionHostConnection] <3391> Extension Host Process exited with code: 0, signal: null.
