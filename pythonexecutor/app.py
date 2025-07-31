@@ -6,6 +6,7 @@ import json
 from io import StringIO
 import sys
 import tempfile
+import subprocess
 
 from flask import Flask, render_template, request
 
@@ -15,18 +16,27 @@ app = Flask(__name__)
 
 def run_script(script):
 
+
     # must parse in here too
 
-    
+    temp = tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False)
 
+
+    
     buffer_output = StringIO()
     original_stdout = sys.stdout
     sys.stdout = buffer_output
+
+    temp.write(script)
+    temp_path = temp.name
+
+    subprocess.run(["nsjail", "--quiet", "--chroot", "/", "--", "python3", temp_path], capture_output=True, text=True)
 
     exec(script)
 
     exec_result = buffer_output.getvalue()
 
+    temp.close()
     return exec_result
 
 
