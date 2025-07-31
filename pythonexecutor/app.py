@@ -60,8 +60,9 @@ if __name__ == '__main__':
         if not lines:
             return {"result": {"error": "no output"}}
 
-        #the very last line of the stdout will be the return from main() as we appended this part earlier
+        # the very last line of the stdout will be the return from main() as we appended this part earlier
         raw_json = lines[-1]
+        # Slice the lines up until that last element, all of which will be the return statements
         user_stdout = "\n".join(lines[:-1])
         if user_stdout:
             user_stdout += "\n"
