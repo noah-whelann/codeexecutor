@@ -5,8 +5,10 @@ import os
 import subprocess
 import shutil
 
+
 app = Flask(__name__)
 
+USE_NSJAIL = os.getenv("USE_NSJAIL", "true").lower() == "true"
 
 def run_script(script):
 
@@ -41,18 +43,24 @@ if __name__ == '__main__':
         "python3") or shutil.which("python") or "python3"
 
     try:
-        # Runt he users script in a subprocess with nsjail enabled to ensure a safe environment
-        process = subprocess.run([
-            "nsjail", "--quiet",
-            "--disable_clone_newuser",
-            "--disable_clone_newns",
-            "--disable_proc",
-            "--iface_no_lo",
-            "--", python_path, temp_path
-        ], capture_output=True, text=True, timeout=5)
 
-        stdout = process.stdout
-        stderr = process.stderr
+        if USE_NSJAIL:
+            cmd = [
+                "nsjail", "--quiet",
+                "--disable_clone_newuser",
+                "--disable_clone_newns",
+                "--disable_proc",
+                "--iface_no_lo",
+                "--", python_path, temp_path
+            ]
+        else:
+            cmd = [python_path, temp_path]
+        # Runt he users script in a subprocess with nsjail enabled to ensure a safe environment
+        process = subprocess.run(
+            cmd, capture_output=True, text=True, timeout=5)
+
+        stdout = process.stdout or ""
+        stderr = process.stderr or ""
 
         # split the std output into an array of lines
         lines = process.stdout.splitlines()
