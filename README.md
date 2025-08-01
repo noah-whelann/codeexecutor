@@ -6,8 +6,9 @@ http://localhost:8080/execute
 
 cURL example:
 curl -X POST https://pythonexecutor-yw5rmvvz6a-uc.a.run.app/execute \
-  -H "Content-Type: application/json" \
-  -d '{"script":"def main(): return {\"message\":\"Hello there\"}"}'
+-H "Content-Type: application/json" \
+-d '{"script": "def main():\n    print(\"Hello there\")\n    return {\"status\": \"success\"}"}'
+
 
 local docker build: 
 docker build -t codeexecutor .
